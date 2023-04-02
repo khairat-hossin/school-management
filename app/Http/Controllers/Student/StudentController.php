@@ -15,7 +15,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('student.index');
+        $students= Student::get();
+
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -67,7 +69,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student= Student::find($id);
+        return view('student.edit', compact('student'));
     }
 
     /**
@@ -79,7 +82,13 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student= Student::find($id);
+        $student->name = $request->name;
+        $student->roll = $request->roll;
+        $student->dob = $request->dob;
+        $student->blood_group = $request->blood_group;
+        $student->save();
+        return redirect()->route('student');
     }
 
     /**
