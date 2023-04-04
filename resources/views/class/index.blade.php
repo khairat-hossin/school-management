@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student</title>
+    <title>class</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
@@ -16,35 +16,28 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <h4>Student List</h4>
-                <a href="{{ route('student.create') }}" class="btn btn-primary btn-sm">Create Student</a>
+                <a href="{{ route('class.create') }}" class="btn btn-primary btn-sm">Create Class</a>
             </div>
             <div class="card-body p-0 table-responsive">
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <td>Sl</td>
-                            <td>Name</td>
-                            <td>Roll</td>
-                            <td>Age</td>
-                            <td>Blood Group</td>
+                            <td>Class Name</td>
                             <td>Action</td>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($students as $student)
+                        @foreach ($classes as $class)
                             <tr>
-                                <td>{{ $student->id }}</td>
-                                <td>{{ $student->name }}</td>
-                                <td>{{ $student->roll }}</td>
-                                <td>{{ $student->dob }}</td>
-                                <td>{{ $student->blood_group }}</td>
-                                <td>
-                                    <a href="{{ route('student.edit', $student->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="{{ route('student.delete', $student->id) }}" class="btn btn-sm btn-danger">Delete</a>
-                                </td>
-                                
+                                <td>{{ $class->id }}</td>
+                                <td>{{ $class->name }}</td>
+                               <td> <a href="{{ route('class.edit', $class->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                               <a href="{{ route('class.delete', $class->id) }}" class="btn btn-sm btn-danger">Delete</a></td>
                             </tr>
                         @endforeach
+                            
+                        
                     </tbody>
                 </table>
             </div>
