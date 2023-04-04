@@ -36,11 +36,24 @@
                             <td>{{ $teacher->tdob }}</td>
                             <td>{{ $teacher->tblood_group}}</td>
                             <td>
+                                <a class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#viewteachermodal">View</a>
                                 <a class="btn btn-primary btn-sm" href="{{ route('teacher.edit', $teacher->id )}}">Edit</a> 
                                 <a class="btn btn-danger btn-sm" href="{{route('teacher.destroy', $teacher->id)}}">Delete</a>
                             </td>
                         </tr>
                         @endforeach
+
+                        <!-- Modal -->
+                        {{-- <div class="modal fade" id="viewteachermodal" tabindex="-1" aria-labelledby="">
+                            <div class="modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-title">
+                                        this is modal title
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        <!-- Modal -->
                     </tbody>
                 </table>
             </div>
