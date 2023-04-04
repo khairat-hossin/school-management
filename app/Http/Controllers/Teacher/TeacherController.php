@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Student;
+namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students= Student::get();
-
-        return view('student.index', compact('students'));
+        $teachers = Teacher::all();
+        //dd($teachers);
+        //
+        return view('teacher.index', compact('teachers'));
     }
 
     /**
@@ -27,7 +29,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('student.create');
+        //
+        return view('teacher.create');
     }
 
     /**
@@ -38,16 +41,16 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        Student::create([
-            'name' => $request->name,
-            'roll' => $request->roll,
-            'dob' => $request->dob,
-            'blood_group' => $request->blood_group,
+        //dd($request);
+        Teacher::create([
+            'tname' => $request->tname,
+            'tregnum' => $request->tregnum,
+            'tsubject' => $request->tsubject,
+            'tdob' => $request->tdob,
+            'tblood_group' => $request->tblood_group,
         ]);
 
-        return redirect()->route('student');
-
+        return redirect()->route('teacher');
     }
 
     /**
@@ -69,8 +72,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $student= Student::find($id);
-        return view('student.edit', compact('student'));
+        //
+        $teacher = Teacher::find($id);
+        return view('teacher.edit', compact('teacher'));
     }
 
     /**
@@ -82,13 +86,17 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $student= Student::find($id);
-        $student->name = $request->name;
-        $student->roll = $request->roll;
-        $student->dob = $request->dob;
-        $student->blood_group = $request->blood_group;
-        $student->save();
-        return redirect()->route('student');
+        //
+        $teacher = Teacher::find($id);
+        $teacher->tname = $request->tname;
+        $teacher->tregnum = $request->tregnum;
+        $teacher->tsubject = $request->tsubject;
+        $teacher->tdob = $request->tdob;
+        $teacher->tblood_group = $request->tblood_group;
+        $teacher->save();
+
+        return redirect()->route('teacher');
+
     }
 
     /**
@@ -99,10 +107,10 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-       Student::destroy($id);
-       
-       return redirect()->route('student');
-    }
+        //
+        $teacher = Teacher::find($id);
+        $teacher->delete();
 
-   
+        return redirect()->route('teacher');
+    }
 }
