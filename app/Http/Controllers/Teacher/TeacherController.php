@@ -87,6 +87,16 @@ class TeacherController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $teacher = Teacher::find($id);
+        $teacher->tname = $request->tname;
+        $teacher->tregnum = $request->tregnum;
+        $teacher->tsubject = $request->tsubject;
+        $teacher->tdob = $request->tdob;
+        $teacher->tblood_group = $request->tblood_group;
+        $teacher->save();
+
+        return redirect()->route('teacher');
+
     }
 
     /**
@@ -98,5 +108,9 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         //
+        $teacher = Teacher::find($id);
+        $teacher->delete();
+
+        return redirect()->route('teacher');
     }
 }

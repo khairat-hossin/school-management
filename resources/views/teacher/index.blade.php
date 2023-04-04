@@ -36,8 +36,8 @@
                             <td>{{ $teacher->tdob }}</td>
                             <td>{{ $teacher->tblood_group}}</td>
                             <td>
-                                <a class="btn btn-primary btn-sm" href="{{ route('teacher.edit', ['id' => $teacher->id])}}">Edit</a> 
-                                <a class="btn btn-danger btn-sm" href="">Delete</a>
+                                <a class="btn btn-primary btn-sm" href="{{ route('teacher.edit', $teacher->id )}}">Edit</a> 
+                                <a class="btn btn-danger btn-sm" href="{{route('teacher.destroy', $teacher->id)}}">Delete</a>
                             </td>
                         </tr>
                         @endforeach

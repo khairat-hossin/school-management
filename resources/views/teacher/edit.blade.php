@@ -16,12 +16,12 @@
                 <a href="{{route('teacher')}}" class="btn btn-warning btn-sm">Back</a>
             </div>
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="{{route('teacher.update', $teacher->id)}}" method="POST">
                     @csrf 
                     <div class="mb-3 row">
                         <label for="tname" class="col-sm-2 col-form-label">Teacher's Name: </label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="tname" id="tname" value="{{$teacher->name}}">
+                          <input type="text" class="form-control" name="tname" id="tname" value="{{$teacher->tname}}">
                         </div>
                     </div>
 
