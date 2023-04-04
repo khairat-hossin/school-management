@@ -99,6 +99,10 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+       Student::destroy($id);
+       
+       return redirect()->route('student');
     }
+
+   
 }
