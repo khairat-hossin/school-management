@@ -11,21 +11,21 @@
             <div class="mb-3 row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" name="name" class="form-control" id="name">
+                    <input type="text" name="name" class="form-control" id="name" required>
                 </div>
             </div>
 
             <div class="mb-3 row">
                 <label for="roll" class="col-sm-2 col-form-label">Roll</label>
                 <div class="col-sm-10">
-                    <input type="text" name="roll" class="form-control" id="roll">
+                    <input type="text" name="roll" class="form-control" id="roll" required>
                 </div>
             </div>
             
             <div class="mb-3 row">
                 <label for="dob" class="col-sm-2 col-form-label">Date of Birth</label>
                 <div class="col-sm-10">
-                    <input type="date" name="dob" class="form-control" id="dob">
+                    <input type="date" name="dob" class="form-control" id="dob" required>
                 </div>
             </div>
             

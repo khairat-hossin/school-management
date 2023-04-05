@@ -19,13 +19,24 @@
             </div>
 
             <div class="card-body">
+
+            @if ($errors->any())
+                <div class="alert alert-danger alert-sm">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
                 <form action="{{route('sub.store')}}" method="POST">
                     @csrf
                     <!-- sub_code -->
                     <div class="mb-3 row">
                         <label for="sub_code" class="col-sm-2 col-form-label">Subject Code</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="sub_code" id="sub_code" placeholder="Subject Code">
+                            <input type="text" class="form-control" name="sub_code" id="sub_code" placeholder="Subject Code" required>
                         </div>
                     </div>
 
@@ -33,7 +44,7 @@
                     <div class="mb-3 row">
                         <label for="sub_name" class="col-sm-2 col-form-label">Subject Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="sub_name" id="sub_name" placeholder="Subject Name">
+                            <input type="text" class="form-control" name="sub_name" id="sub_name" placeholder="Subject Name" required>
                         </div>
                     </div>
                     

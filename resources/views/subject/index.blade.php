@@ -21,10 +21,10 @@
                 <table class="table table-bordered table-striped text-center">
                     <thead>
                         <tr>
-                            <td>Sl.</td>
-                            <td>Subject Code</td>
-                            <td>Subject Name</td>
-                            <td>Action</td>
+                            <th>Sl.</th>
+                            <th>Subject Code</th>
+                            <th>Subject Name</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
@@ -35,49 +35,6 @@
                             <td>{{ $subject->sub_code }}</td>
                             <td>{{ $subject->sub_name }}</td>
                             <td>
-
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                View
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Subject Info</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <div class="table-responsive">
-                                                        <table class="table-dark table table-bordered table-striped text-center">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Subject Code</th>
-                                                                    <th>Subject Name</th>
-                                                                </tr>
-                                                            </thead>
-
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>{{ $subject->sub_code }}</td>
-                                                                    <td>{{ $subject->sub_name }}</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <a href="{{route('sub.edit', $subject->id)}}" class="btn btn-outline-primary btn-sm">Edit</a>
                                 <a href="{{route('sub.destroy', $subject->id)}}" class="btn btn-outline-danger btn-sm">Remove</a>
                             </td>
