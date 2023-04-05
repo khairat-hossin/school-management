@@ -33,6 +33,11 @@ class SubjectController extends Controller
     {
         // dd($request->all());
 
+        $request->validate([
+            'sub_code' => ['bail', 'required', 'unique:subjects', 'max:20'],
+            'sub_name' => ['required'],
+        ]);
+
         Subject::create([
             'sub_code' => $request->sub_code,
             'sub_name' => $request->sub_name,

@@ -21,35 +21,35 @@
                     <div class="mb-3 row">
                         <label for="tname" class="col-sm-2 col-form-label">Teacher's Name: </label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="tname" id="tname">
+                          <input type="text" class="form-control" name="tname" id="tname" required>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="tregnum" class="col-sm-2 col-form-label">Teacher Registration Number: </label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="tregnum" id="tregnum">
+                          <input type="text" class="form-control" name="tregnum" id="tregnum" required>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="tsubject" class="col-sm-2 col-form-label">Subject: </label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="tsubject" id="tsubject">
+                          <input type="text" class="form-control" name="tsubject" id="tsubject" required>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="tdob" class="col-sm-2 col-form-label">Teacher's Date Of Birth: </label>
                         <div class="col-sm-10">
-                          <input type="date" class="form-control" name="tdob" id="tdob">
+                          <input type="date" class="form-control" name="tdob" id="tdob" required>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="tsubject" class="col-sm-2 col-form-label">Blood Group: </label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="tblood_group" id="tblood_group">
+                          <input type="text" class="form-control" name="tblood_group" id="tblood_group" required>
                         </div>
                     </div>
 
