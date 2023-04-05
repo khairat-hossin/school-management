@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel CRUD | Subjects</title>
+    <title>Subjects</title>
 
     <!-- Bootstrap V5.0.2 Stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -22,7 +22,7 @@
                     <thead>
                         <tr>
                             <td>Sl.</td>
-                            <td>Subject ID</td>
+                            <td>Subject Code</td>
                             <td>Subject Name</td>
                             <td>Action</td>
                         </tr>
@@ -32,12 +32,12 @@
                         @foreach($subjects as $subject)
                         <tr>
                             <td>{{ $subject->id }}</td>
-                            <td>{{ $subject->sub_id }}</td>
+                            <td>{{ $subject->sub_code }}</td>
                             <td>{{ $subject->sub_name }}</td>
                             <td>
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 View
                                 </button>
 
@@ -56,14 +56,14 @@
                                                         <table class="table-dark table table-bordered table-striped text-center">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Subject ID</th>
+                                                                    <th>Subject Code</th>
                                                                     <th>Subject Name</th>
                                                                 </tr>
                                                             </thead>
 
                                                             <tbody>
                                                                 <tr>
-                                                                    <td>{{ $subject->sub_id }}</td>
+                                                                    <td>{{ $subject->sub_code }}</td>
                                                                     <td>{{ $subject->sub_name }}</td>
                                                                 </tr>
                                                             </tbody>
@@ -72,7 +72,7 @@
                                             </div>
 
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </div>
                                     </div>
