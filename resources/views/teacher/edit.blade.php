@@ -28,7 +28,7 @@
                     <div class="mb-3 row">
                         <label for="tregnum" class="col-sm-2 col-form-label">Teacher Registration Number: </label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="tregnum" id="tregnum" value="{{$teacher->tregnum}}">
+                          <input type="text" class="form-control" name="tregnum" id="tregnum" value="{{$teacher->tregnum}}" required>
                         </div>
                     </div>
 
