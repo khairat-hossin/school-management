@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
@@ -89,14 +90,14 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $student= Student::find($id);
         //Validation
         $request->validate([
             'name' => ['bail', 'required', 'max:150'],
-            'roll' => ['bail', 'unique:students', 'required'],
+            'roll' => ['bail', 'required', Rule::unique('students')->ignore($student->id)],
             'dob' => ['required'],
         ]);
 
-        $student= Student::find($id);
         $student->name = $request->name;
         $student->roll = $request->roll;
         $student->dob = $request->dob;

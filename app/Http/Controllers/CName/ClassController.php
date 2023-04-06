@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\classes;
 use App\Models\Classes as ModelsClasses;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ClassController extends Controller
 {
@@ -46,12 +47,12 @@ class ClassController extends Controller
 
     public function update(Request $request, $id)
     {
+        $class= Classes::find($id);
         //Validation
         $request->validate([
-            'name' => ['bail', 'required', 'unique:classes', 'max:200'],
+            'name' => ['bail', 'required', 'max:200', Rule::unique('classes')->ignore($class->id)],
         ]);
-        
-        $class= Classes::find($id);
+
         $class->name = $request->name;
         $class->save();
         return redirect()->route('class');
