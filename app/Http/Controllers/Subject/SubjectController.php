@@ -33,8 +33,14 @@ class SubjectController extends Controller
     {
         // dd($request->all());
 
+        //Validation
+        $request->validate([
+            'sub_code' => ['bail', 'required', 'unique:subjects', 'max:20'],
+            'sub_name' => ['required'],
+        ]);
+
         Subject::create([
-            'sub_id' => $request->sub_id,
+            'sub_code' => $request->sub_code,
             'sub_name' => $request->sub_name,
         ]);
 
@@ -68,7 +74,13 @@ class SubjectController extends Controller
 
         $subject = Subject::find($id);
 
-        $subject->sub_id = $request->sub_id;
+        //validation
+        $request->validate([
+            'sub_code' => ['bail', 'required', 'unique:subjects', 'max:20'],
+            'sub_name' => ['required'],
+        ]);
+
+        $subject->sub_code = $request->sub_code;
         $subject->sub_name = $request->sub_name;
 
         $subject->save();
