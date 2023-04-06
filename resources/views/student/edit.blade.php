@@ -19,26 +19,36 @@
                 <a href="{{ route('student') }}" class="btn btn-warning btn-sm">Go Back</a>
             </div>
             <div class="card-body">
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-sm">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                
                 <form action="{{ route('student.update', $student->id) }}" method="POST">
                     @csrf
                     <div class="mb-3 row">
                         <label for="name" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" name="name" value="{{ $student->name }}" class="form-control" id="name">
+                            <input type="text" name="name" value="{{ $student->name }}" class="form-control" id="name" required>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="roll" class="col-sm-2 col-form-label">Roll</label>
                         <div class="col-sm-10">
-                            <input type="text" name="roll" value="{{ $student->roll }}" class="form-control" id="roll">
+                            <input type="text" name="roll" value="{{ $student->roll }}" class="form-control" id="roll" required>
                         </div>
                     </div>
                     
                     <div class="mb-3 row">
                         <label for="dob" class="col-sm-2 col-form-label">Date of Birth</label>
                         <div class="col-sm-10">
-                            <input type="date" name="dob" value="{{ $student->dob }}" class="form-control" id="dob">
+                            <input type="date" name="dob" value="{{ $student->dob }}" class="form-control" id="dob" required>
                         </div>
                     </div>
                     
