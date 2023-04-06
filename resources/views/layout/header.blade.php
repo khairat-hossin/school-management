@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<title>School Management System</title>
+=======
 <nav class="navbar navbar-expand-sm bg-body-tertiary fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{route('home')}}">Home</a>
@@ -20,3 +28,4 @@
         </div>
     </div>
 </nav>
+>>>>>>> 0eea7d8cf04dc2573d74e56dd728d3c465b2ef41
