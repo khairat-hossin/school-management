@@ -39,6 +39,13 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        //Validation
+        $request->validate([
+            'name' => ['bail', 'required', 'max:150'],
+            'roll' => ['bail', 'unique:students', 'required'],
+            'dob' => ['required'],
+        ]);
+
         Student::create([
             'name' => $request->name,
             'roll' => $request->roll,
@@ -82,6 +89,13 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //Validation
+        $request->validate([
+            'name' => ['bail', 'required', 'max:150'],
+            'roll' => ['bail', 'unique:students', 'required'],
+            'dob' => ['required'],
+        ]);
+
         $student= Student::find($id);
         $student->name = $request->name;
         $student->roll = $request->roll;

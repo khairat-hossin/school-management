@@ -25,6 +25,11 @@ class ClassController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        //Validation
+        $request->validate([
+            'name' => ['bail', 'required', 'unique:classes', 'max:200'],
+        ]);
+
         Classes::create([
             'name' => $request->name,
         ]);
@@ -41,6 +46,11 @@ class ClassController extends Controller
 
     public function update(Request $request, $id)
     {
+        //Validation
+        $request->validate([
+            'name' => ['bail', 'required', 'unique:classes', 'max:200'],
+        ]);
+        
         $class= Classes::find($id);
         $class->name = $request->name;
         $class->save();
