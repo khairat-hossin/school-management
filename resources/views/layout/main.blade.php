@@ -14,7 +14,9 @@
     @include('layout.header')
     @include('layout.sidebar')
     <div class="container">
-        @yield('content')
+        <div class="mt-5">
+            @yield('content')
+        </div>
     </div>
 
     @include('layout.footer')
