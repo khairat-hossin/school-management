@@ -62,7 +62,7 @@
         labels: ['Student', 'Teacher', 'Class', 'Subject'],
         datasets: [{
           label: '# of',
-          data: [12, 19, 3, 5],
+          data: ["{{ $student }}", "{{ $teacher }}", "{{ $classes }}", "{{ $subject }}"],
           borderWidth: 2
         }]
       },
