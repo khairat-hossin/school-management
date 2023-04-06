@@ -6,6 +6,16 @@
         <a href="{{ route('student') }}" class="btn btn-warning btn-sm">Go Back</a>
     </div>
     <div class="card-body">
+        @if ($errors->any())
+            <div class="alert alert-danger alert-sm">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{ route('student.store') }}" method="POST">
             @csrf
             <div class="mb-3 row">

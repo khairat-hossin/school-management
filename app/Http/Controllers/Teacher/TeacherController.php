@@ -42,6 +42,15 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         //dd($request);
+        //Validation
+        $request->validate([
+            'tname' => ['bail', 'required', 'max:200'],
+            'tregnum' => ['bail', 'required', 'unique:teachers',],
+            'tsubject' => ['required'],
+            'tdob' => ['required'],
+            'tblood_group' => ['required'],
+        ]);
+
         Teacher::create([
             'tname' => $request->tname,
             'tregnum' => $request->tregnum,
@@ -87,6 +96,15 @@ class TeacherController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //Validation
+        $request->validate([
+            'tname' => ['bail', 'required', 'max:200'],
+            'tregnum' => ['bail', 'required', 'unique:teachers',],
+            'tsubject' => ['required'],
+            'tdob' => ['required'],
+            'tblood_group' => ['required'],
+        ]);
+
         $teacher = Teacher::find($id);
         $teacher->tname = $request->tname;
         $teacher->tregnum = $request->tregnum;
