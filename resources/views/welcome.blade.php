@@ -46,4 +46,35 @@
         </div>
     </div>
 </div>
+
+<div>
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Student', 'Teacher', 'Class', 'Subject'],
+        datasets: [{
+          label: '# of',
+          data: [12, 19, 3, 5],
+          borderWidth: 2
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
 @endsection
+
+
