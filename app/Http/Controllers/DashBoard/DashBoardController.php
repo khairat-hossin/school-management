@@ -24,6 +24,7 @@ class DashBoardController extends Controller
         $classes=Classes::count();
         $subject=Subject::count();
         return view('welcome',compact('student','teacher','classes','subject'));
+
     }
 
     /**
