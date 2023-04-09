@@ -19,7 +19,7 @@
                     </div>
                 @endif
                 
-                <form action="{{route('sub.update', $subject->id)}}" method="POST">
+                <form action="{{route('sub.update', $subject->id)}}" name="sub_form" onsubmit="return validateForm()" method="POST" novalidate>
                     @csrf
                     <!-- sub_code -->
                     <div class="mb-3 row">
@@ -48,5 +48,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function validateForm() {
+            let x = document.forms["sub_form"]["sub_code"].value;
+            let y = document.forms["sub_form"]["sub_name"].value;
+            if (x == "") {
+                alert("Subject code must be filled out");
+                return false;
+            }
+            if (y == "") {
+                alert("Subject name must be filled out");
+                return false;
+            }
+        }
+    </script>
 @endsection
-    <!-- Bootstrap V5.0.2 Script -->
