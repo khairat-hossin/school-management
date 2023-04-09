@@ -19,21 +19,27 @@
                 </div>
             @endif
 
-                <form action="{{route('sub.store')}}" method="POST">
+                <form action="{{route('sub.store')}}" method="POST" class="was-validated">
                     @csrf
                     <!-- sub_code -->
-                    <div class="mb-3 row">
+                    <div class="mb-3 row has-validation">
                         <label for="sub_code" class="col-sm-2 col-form-label">Subject Code</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="sub_code" id="sub_code" placeholder="Subject Code" required>
+                            <div class="invalid-feedback">
+                                Please, provide a valid subject code.
+                            </div>
                         </div>
                     </div>
 
                     <!-- sub_name -->
-                    <div class="mb-3 row">
+                    <div class="mb-3 row has-validation">
                         <label for="sub_name" class="col-sm-2 col-form-label">Subject Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="sub_name" id="sub_name" placeholder="Subject Name" required>
+                            <input type="text" class="form-control is-valid" name="sub_name" id="sub_name" placeholder="Subject Name" required>
+                            <div class="invalid-feedback">
+                                Please, provide a subject name.
+                            </div>
                         </div>
                     </div>
                     
@@ -48,5 +54,4 @@
             </div>
         </div>
 
-    <!-- Bootstrap V5.0.2 Script -->
 @endsection
