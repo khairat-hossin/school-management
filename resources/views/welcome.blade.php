@@ -47,8 +47,12 @@
     </div>
 </div>
 
-<div>
-    <canvas id="myChart"></canvas>
+
+  <!--bar_chart--->
+  <div class="row">
+  <div class="col-md-4">
+<div class="barchart">
+    <canvas id="myChart" width="150" height="50"></canvas>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -63,10 +67,20 @@
         datasets: [{
           label: '# of',
           data: ["{{ $student }}", "{{ $teacher }}", "{{ $classes }}", "{{ $subject }}"],
-          borderWidth: 2
+          backgroundColor:[
+        'red',
+        'blue',
+        'green',
+        'yellow'
+
+      ],
+          borderWidth: 2,
+          
+
         }]
       },
       options: {
+        
         scales: {
           y: {
             beginAtZero: true
@@ -75,6 +89,78 @@
       }
     });
   </script>
+  </div>
+  
+  <div class="col-md-4">
+  <div class="Piechart">
+    <canvas id="mypiechart" height="50px"; width="50px"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+  const pie = document.getElementById('mypiechart').getContext('2d');
+
+new Chart(pie, {
+  type: 'pie',
+  data: {
+    labels: ['Student', 'Teacher', 'Class', 'Subject'],
+    datasets: [{
+      label: '# of Votes',
+      data: ["{{ $student }}", "{{ $teacher }}", "{{ $classes }}", "{{ $subject }}"],
+      backgroundColor:[
+        'red',
+        'blue',
+        'green',
+        'yellow'
+
+      ],
+      borderWidth: 0
+    }]
+  }
+});
+
+  </script>
+  </div>
+  
+
+    <div class="col-md-4">
+      <div class="doughtnutchart">
+        <canvas id="mydDoughnutChart" width="50" height="50"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const dctx = document.getElementById('mydDoughnutChart');
+      
+        new Chart(dctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Student', 'Teacher', 'Class', 'Subject'],
+            datasets: [{
+              label: '# of',
+              data: ["{{ $student }}", "{{ $teacher }}", "{{ $classes }}", "{{ $subject }}"],
+              backgroundColor:[
+        'red',
+        'blue',
+        'green',
+        'yellow'
+
+      ],
+              borderWidth: 2,
+              
+    
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+    </div>
 @endsection
 
 
