@@ -13,15 +13,10 @@
 
 <body>
     @include('layout.header')
-    <div class="container-fluid">
-        <div class="row">
-            @include('layout.sidebar')
-            <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                <button class="sidebar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-expanded="true" aria-controls="sidebarCollapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                @yield('content')
-            </div>
+    @include('layout.sidebar')
+    <div class="container">
+        <div class="pt-5 mt-3">
+            @yield('content')
         </div>
     </div>
 
