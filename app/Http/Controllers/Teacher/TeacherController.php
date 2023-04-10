@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class TeacherController extends Controller
 {
@@ -45,7 +46,7 @@ class TeacherController extends Controller
         //Validation
         $request->validate([
             'tname' => ['bail', 'required', 'max:200'],
-            'tregnum' => ['bail', 'required', 'unique:teachers',],
+            'tregnum' => ['bail', 'required', 'unique:teachers'],
             'tsubject' => ['required'],
             'tdob' => ['required'],
             'tblood_group' => ['required'],
@@ -95,17 +96,16 @@ class TeacherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $teacher = Teacher::find($id);
         //Validation
         $request->validate([
             'tname' => ['bail', 'required', 'max:200'],
-            'tregnum' => ['bail', 'required', 'unique:teachers',],
+            'tregnum' => ['bail', 'required', Rule::unique('teachers')->ignore($teacher->id)],
             'tsubject' => ['required'],
             'tdob' => ['required'],
             'tblood_group' => ['required'],
         ]);
 
-        $teacher = Teacher::find($id);
         $teacher->tname = $request->tname;
         $teacher->tregnum = $request->tregnum;
         $teacher->tsubject = $request->tsubject;

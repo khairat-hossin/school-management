@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Subject;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subject;
+use Illuminate\Validation\Rule;
 
 class SubjectController extends Controller
 {
@@ -76,7 +77,7 @@ class SubjectController extends Controller
 
         //validation
         $request->validate([
-            'sub_code' => ['bail', 'required', 'unique:subjects', 'max:20'],
+            'sub_code' => ['bail', 'required', 'max:20', Rule::unique('subjects')->ignore($subject->id)],
             'sub_name' => ['required'],
         ]);
 
