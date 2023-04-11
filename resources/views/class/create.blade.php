@@ -17,12 +17,12 @@
                     </div>
                 @endif
                 
-                <form action="{{ route('class.store') }}" method="POST">
+                <form action="{{ route('class.store') }}" id="class_create_form" method="POST">
                     @csrf
                     <div class="mb-3 row">
                         <label for="name" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" name="name" class="form-control" id="name" required>
+                            <input type="text" name="name" class="form-control" id="name">
                         </div>
                     </div>
 
@@ -38,4 +38,24 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(function() {
+        $("#class_create_form").validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+            },
+
+            messages: {
+                name: {
+                    required: "<b><em>Class Name</em></b> is a mandatory field."
+                },
+            },
+        });
+    });
+</script>
 @endsection
