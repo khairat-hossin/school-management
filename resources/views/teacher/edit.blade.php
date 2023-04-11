@@ -21,41 +21,41 @@
                 <form action="{{ route('teacher.update', $teacher->id) }}" id="teacher_edit_form" method="POST">
                     @csrf
                     <div class="mb-3 row">
-                        <label for="tname" class="col-sm-2 col-form-label">Teacher's Name: </label>
+                        <label for="name" class="col-sm-2 col-form-label">Teacher's Name: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="tname" id="tname"
-                                value="{{ $teacher->tname }}">
+                            <input type="text" class="form-control" name="name" id="name"
+                                value="{{ $teacher->name }}">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="tregnum" class="col-sm-2 col-form-label">Teacher Registration Number: </label>
+                        <label for="reg_num" class="col-sm-2 col-form-label">Teacher Registration Number: </label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="tregnum" id="tregnum" value="{{$teacher->tregnum}}">
+                          <input type="text" class="form-control" name="reg_num" id="reg_num" value="{{$teacher->reg_num}}">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="tsubject" class="col-sm-2 col-form-label">Subject: </label>
+                        <label for="subject" class="col-sm-2 col-form-label">Subject: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="tsubject" id="tsubject"
-                                value="{{ $teacher->tsubject }}">
+                            <input type="text" class="form-control" name="subject" id="subject"
+                                value="{{ $teacher->subject }}">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="tdob" class="col-sm-2 col-form-label">Teacher's Date Of Birth: </label>
+                        <label for="dob" class="col-sm-2 col-form-label">Teacher's Date Of Birth: </label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="tdob" id="tdob"
-                                value="{{ $teacher->tdob }}">
+                            <input type="date" class="form-control" name="dob" id="dob"
+                                value="{{ $teacher->dob }}">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="tsubject" class="col-sm-2 col-form-label">Blood Group: </label>
+                        <label for="subject" class="col-sm-2 col-form-label">Blood Group: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="tblood_group" id="tblood_group"
-                                value="{{ $teacher->tblood_group }}">
+                            <input type="text" class="form-control" name="blood_group" id="blood_group"
+                                value="{{ $teacher->blood_group }}">
                         </div>
                     </div>
 
@@ -75,36 +75,39 @@
     $(function() {
         $("#teacher_edit_form").validate({
             rules: {
-                tname: {
+                name: {
                     required: true,
                 },
-                tregnum: {
+                reg_num: {
                     required: true,
                 },
-                tsubject: {
+                subject: {
                     required: true,
                 },
-                tdob: {
+                dob: {
                     required: true,
                     dateISO: true,
                 },
-                tblood_group: {
+                blood_group: {
                     required: true,
                 },
             },
 
             messages: {
-                tname: {
+                name: {
                     required: "<b><em>Teacher Name</em></b> is a mandatory field.",
                 },
-                tregnum: {
+                reg_num: {
                     required: "<b><em>Teacher Registration Number</em></b> is a mandatory field.",
                 },
-                tdob: {
+                dob: {
                     required: "<b><em>Teacher Date of Birth</em></b> is a mandatory field.",
                     dateISO: "Please enter a valid date",
                 },
-                tblood_group: {
+                subject: {
+                    required: "<b><em>Subject</em></b> is a mandatory field.",
+                },
+                blood_group: {
                     required: "<b><em>Blood Group</em></b> is a mandatory field.",
                 },
             },

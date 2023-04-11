@@ -15,11 +15,11 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('tname');
-            $table->string('tregnum');
-            $table->string('tsubject');
-            $table->date('tdob');
-            $table->string('tblood_group');
+            $table->string('name');
+            $table->string('reg_num');
+            $table->string('subject');
+            $table->date('dob');
+            $table->string('blood_group');
             $table->timestamps();
         });
     }
