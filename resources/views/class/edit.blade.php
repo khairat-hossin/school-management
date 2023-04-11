@@ -17,7 +17,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('class.update', $class->id) }}" method="POST">
+                <form action="{{ route('class.update', $class->id) }}" id="class_edit_form" method="POST">
                     @csrf
                     <div class="mb-3 row">
                         <label for="name" class="col-sm-2 col-form-label">Name</label>
@@ -39,4 +39,24 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(function() {
+        $("#class_edit_form").validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+            },
+
+            messages: {
+                name: {
+                    required: "<b><em>Class Name</em></b> is a mandatory field."
+                },
+            },
+        });
+    });
+</script>
 @endsection
