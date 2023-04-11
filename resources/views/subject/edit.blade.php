@@ -19,13 +19,13 @@
                     </div>
                 @endif
                 
-                <form action="{{route('sub.update', $subject->id)}}" name="sub_form" onsubmit="return validateForm()" method="POST" novalidate>
+                <form action="{{route('sub.update', $subject->id)}}" id="sub_edit_form" method="POST" >
                     @csrf
                     <!-- sub_code -->
                     <div class="mb-3 row">
                         <label for="sub_code" class="col-sm-2 col-form-label">Subject Code</label>
                         <div class="col-sm-10">
-                            <input type="text" value="{{$subject->sub_code}}" class="form-control" name="sub_code" id="sub_code" placeholder="Subject Code" required>
+                            <input type="text" value="{{$subject->sub_code}}" class="form-control" name="sub_code" id="sub_code" placeholder="Subject Code" >
                         </div>
                     </div>
 
@@ -33,7 +33,7 @@
                     <div class="mb-3 row">
                         <label for="sub_name" class="col-sm-2 col-form-label">Subject Name</label>
                         <div class="col-sm-10">
-                            <input type="text" value="{{$subject->sub_name}}" class="form-control" name="sub_name" id="sub_name" placeholder="Subject Name" required>
+                            <input type="text" value="{{$subject->sub_name}}" class="form-control" name="sub_name" id="sub_name" placeholder="Subject Name">
                         </div>
                     </div>
                     
@@ -48,19 +48,30 @@
             </div>
         </div>
     </div>
+    @endsection
 
+    @section('script')
     <script>
-        function validateForm() {
-            let x = document.forms["sub_form"]["sub_code"].value;
-            let y = document.forms["sub_form"]["sub_name"].value;
-            if (x == "") {
-                alert("Subject code must be filled out");
-                return false;
-            }
-            if (y == "") {
-                alert("Subject name must be filled out");
-                return false;
-            }
-        }
+        $(function() {
+            $("#sub_edit_form").validate({
+                rules: {
+                    sub_code: {
+                        required: true,
+                    },
+                    sub_name: {
+                        required: true,
+                    },
+                },
+
+                messages: {
+                    sub_code: {
+                        required: '<b><em>Subject Code</em></b> is a mandatory field.',
+                    },
+                    sub_name: {
+                        required: '<b><em>Subject Name</em></b> is a mandatory field.',
+                    },
+                },
+            });
+        });
     </script>
 @endsection

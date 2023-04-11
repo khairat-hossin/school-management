@@ -19,39 +19,60 @@
                 </div>
             @endif
 
-                <form action="{{route('sub.store')}}" method="POST" class="was-validated">
-                    @csrf
-                    <!-- sub_code -->
-                    <div class="mb-3 row has-validation">
-                        <label for="sub_code" class="col-sm-2 col-form-label">Subject Code</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="sub_code" id="sub_code" placeholder="Subject Code" required>
-                            <div class="invalid-feedback">
-                                Please, provide a valid subject code.
-                            </div>
-                        </div>
+            <form action="{{route('sub.store')}}" id="sub_create_form" method="POST">
+                @csrf
+                <!-- sub_code -->
+                <div class="mb-3 row">
+                    <label for="sub_code" class="col-sm-2 col-form-label">Subject Code</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="sub_code" id="sub_code" placeholder="Subject Code">
                     </div>
+                </div>
 
-                    <!-- sub_name -->
-                    <div class="mb-3 row has-validation">
-                        <label for="sub_name" class="col-sm-2 col-form-label">Subject Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control is-valid" name="sub_name" id="sub_name" placeholder="Subject Name" required>
-                            <div class="invalid-feedback">
-                                Please, provide a subject name.
-                            </div>
-                        </div>
+                <!-- sub_name -->
+                <div class="mb-3 row">
+                    <label for="sub_name" class="col-sm-2 col-form-label">Subject Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="sub_name" id="sub_name" placeholder="Subject Name">
                     </div>
-                    
-                    <!-- Submit Button -->
-                    <div class="mb-3 row">
-                        <div class="col-1">
-                            <button type="submit" class="btn btn-success btn-sm">Submit</button>
-                        </div>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="mb-3 row">
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-success btn-sm">Submit</button>
                     </div>
+                </div>
 
-                </form>
+            </form>
             </div>
         </div>
+    </div>
 
+@endsection
+
+@section('script')
+<script>
+    $(function() {
+        $("#sub_create_form").validate({
+            rules: {
+                sub_code: {
+                    required: true,
+                },
+                sub_name: {
+                    required: true,
+                },
+            },
+
+            messages: {
+                sub_code: {
+                    required: '<b><em>Subject Code</em></b> is a mandatory field.',
+                },
+                sub_name: {
+                    required: '<b><em>Subject Name</em></b> is a mandatory field.',
+                },
+            },
+        });
+    });
+</script>
 @endsection
