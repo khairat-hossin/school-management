@@ -19,7 +19,7 @@
                 </div>
             @endif
 
-            <form action="{{route('sub.store')}}" method="POST">
+            <form action="{{route('sub.store')}}" id="sub_create_form" method="POST">
                 @csrf
                 <!-- sub_code -->
                 <div class="mb-3 row">
@@ -49,7 +49,30 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-    <script src="js/validation.js"></script>
+@endsection
+
+@section('script')
+<script>
+    $(function() {
+        $("#sub_create_form").validate({
+            rules: {
+                sub_code: {
+                    required: true,
+                },
+                sub_name: {
+                    required: true,
+                },
+            },
+
+            messages: {
+                sub_code: {
+                    required: '<b><em>Subject Code</em></b> is a mandatory field.',
+                },
+                sub_name: {
+                    required: '<b><em>Subject Name</em></b> is a mandatory field.',
+                },
+            },
+        });
+    });
+</script>
 @endsection
