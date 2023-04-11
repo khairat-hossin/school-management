@@ -45,19 +45,19 @@ class TeacherController extends Controller
         //dd($request);
         //Validation
         $request->validate([
-            'tname' => ['bail', 'required', 'max:200'],
-            'tregnum' => ['bail', 'required', 'unique:teachers'],
-            'tsubject' => ['required'],
-            'tdob' => ['required'],
-            'tblood_group' => ['required'],
+            'name' => ['bail', 'required', 'max:200'],
+            'reg_num' => ['bail', 'required', 'unique:teachers'],
+            'subject' => ['required'],
+            'dob' => ['required'],
+            'blood_group' => ['required'],
         ]);
 
         Teacher::create([
-            'tname' => $request->tname,
-            'tregnum' => $request->tregnum,
-            'tsubject' => $request->tsubject,
-            'tdob' => $request->tdob,
-            'tblood_group' => $request->tblood_group,
+            'name' => $request->name,
+            'reg_num' => $request->reg_num,
+            'subject' => $request->subject,
+            'dob' => $request->dob,
+            'blood_group' => $request->blood_group,
         ]);
 
         return redirect()->route('teacher');
@@ -99,18 +99,18 @@ class TeacherController extends Controller
         $teacher = Teacher::find($id);
         //Validation
         $request->validate([
-            'tname' => ['bail', 'required', 'max:200'],
-            'tregnum' => ['bail', 'required', Rule::unique('teachers')->ignore($teacher->id)],
-            'tsubject' => ['required'],
-            'tdob' => ['required'],
-            'tblood_group' => ['required'],
+            'name' => ['bail', 'required', 'max:200'],
+            'reg_num' => ['bail', 'required', Rule::unique('teachers')->ignore($teacher->id)],
+            'subject' => ['required'],
+            'dob' => ['required'],
+            'blood_group' => ['required'],
         ]);
 
-        $teacher->tname = $request->tname;
-        $teacher->tregnum = $request->tregnum;
-        $teacher->tsubject = $request->tsubject;
-        $teacher->tdob = $request->tdob;
-        $teacher->tblood_group = $request->tblood_group;
+        $teacher->name = $request->name;
+        $teacher->reg_num = $request->reg_num;
+        $teacher->subject = $request->subject;
+        $teacher->dob = $request->dob;
+        $teacher->blood_group = $request->blood_group;
         $teacher->save();
 
         return redirect()->route('teacher');
