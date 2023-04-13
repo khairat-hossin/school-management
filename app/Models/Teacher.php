@@ -13,6 +13,9 @@ class Teacher extends Model
         'reg_num',
         'subject',
         'dob',
-        'blood_group'
+        'blood_group',
+        //------ Added by ANAM ISLAM 23.04.2023
+        'email' 
+        //------ Added by ANAM ISLAM 23.04.2023
     ];
 }
