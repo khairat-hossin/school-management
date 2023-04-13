@@ -54,6 +54,15 @@
                         </div>
                     </div>
 
+                    {{-- teacher email.. added by ANAM ISLAM 13.04.2023--}}
+                    <div class="mb-3 row">
+                        <label for="email" class="col-sm-2 col-form-label">Email: </label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" name="email" id="email">
+                        </div>
+                    </div>
+                    {{-- teacher email.. added by ANAM ISLAM 13.04.2023--}}
+
                     <div class="mb-3 row">
                         <div class="col-1">
                             <button type="submit" class="btn btn-success btn-sm">Submit</button>
@@ -86,6 +95,11 @@
                 blood_group: {
                     required: true,
                 },
+                //-------- Added by ANAM ISLAM 13.04.2023 -----
+                email: {
+                    required:true,
+                },
+                //----------------------------------------------
             },
 
             messages: {
@@ -105,6 +119,11 @@
                 blood_group: {
                     required: "<b><em>Blood Group</em></b> is a mandatory field.",
                 },
+                //--------------- Addded by ANAM ISLAM 13.04.2023 ---------------------
+                email: {
+                    required: "<b><em>Email</em></b> is a mandatory field.",
+                },
+                //--------------------------------------------------------------------------
             },
         });
     });

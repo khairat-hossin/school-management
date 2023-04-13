@@ -15,6 +15,9 @@
                     <td>Subject</td>
                     <td>DOB</td>
                     <td>Blood Group</td>
+                    {{-------- Added by ANAM ISLAM 23.04.2023 ----------------}}
+                    <td>Email</td>
+                    {{-------- Added by ANAM ISLAM 23.04.2023 ----------------}}
                     <td>Action</td>
                 </tr>
             </thead>
@@ -27,6 +30,9 @@
                     <td>{{ $teacher->subject }}</td>
                     <td>{{ $teacher->dob }}</td>
                     <td>{{ $teacher->blood_group}}</td>
+                    {{-------- Added by ANAM ISLAM 23.04.2023 ----------------}}
+                    <td>{{ $teacher->email }}</td>
+                    {{-------- Added by ANAM ISLAM 23.04.2023 ----------------}}
                     <td>
                         <a class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#viewteachermodal">View</a>
                         <a class="btn btn-primary btn-sm" href="{{ route('teacher.edit', $teacher->id )}}">Edit</a> 

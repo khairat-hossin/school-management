@@ -32,7 +32,10 @@ class SubjectSeeder extends Seeder
                 'reg_num' => $faker->randomDigit(),
                 'subject' => $faker->word,
                 "dob" => $faker->date(),
-                "blood_group" => $faker->bloodGroup()
+                "blood_group" => $faker->bloodGroup(),
+                //------------ Added by ANAM ISLAM 13.04.2023 -------------------
+                "email"=> $faker->email()
+                //------------ Added by ANAM ISLAM 13.04.2023 -------------------
             ]);
     
         }
