@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="subject" class="col-sm-2 col-form-label">Blood Group: </label>
+                        <label for="blood_group" class="col-sm-2 col-form-label">Blood Group: </label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="blood_group" id="blood_group">
                         </div>
