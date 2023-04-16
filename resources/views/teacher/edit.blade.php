@@ -38,8 +38,18 @@
                     <div class="mb-3 row">
                         <label for="subject" class="col-sm-2 col-form-label">Subject: </label>
                         <div class="col-sm-10">
+                            {{--
                             <input type="text" class="form-control" name="subject" id="subject"
                                 value="{{ $teacher->subject }}">
+                                --}}
+                            {{------ Added By ANAM ISLAM: Dropdown Subjects : 16.04.2023 ------}}
+                            <select name="subject" id="subject" class="form-control">
+                                <option value="">{{$teacher->subject}}</option>
+                                @foreach($subjects as $subject)
+                                <option value="{{$subject->sub_name}}">{{$subject->sub_name}}</option>
+                                @endforeach
+                            </select>
+                            {{------ Added By ANAM ISLAM: Dropdown Subjects : 16.04.2023 ------}}
                         </div>
                     </div>
 

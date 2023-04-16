@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Teacher;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\Teacher;
+use App\Models\Subject;  // ----- Added By ANAM ISLAM: Dropdown Subjects : 16.04.2023 -------
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -31,7 +32,8 @@ class TeacherController extends Controller
     public function create()
     {
         //
-        return view('teacher.create');
+        $subjects = Subject::all(); // ----- Added By ANAM ISLAM: Dropdown Subjects : 16.04.2023 -------
+        return view('teacher.create', compact('subjects'));
     }
 
     /**
@@ -50,9 +52,9 @@ class TeacherController extends Controller
             'subject' => ['required'],
             'dob' => ['required'],
             'blood_group' => ['required'],
-            //-------- Added by ANAM ISLAM 23.04.2023 ----------------
+            //-------- Added by ANAM ISLAM 13.04.2023 ----------------
             'email' => ['required']
-            //-------- Added by ANAM ISLAM 23.04.2023 ----------------
+            //-------- Added by ANAM ISLAM 13.04.2023 ----------------
         ]);
 
         Teacher::create([
@@ -61,9 +63,9 @@ class TeacherController extends Controller
             'subject' => $request->subject,
             'dob' => $request->dob,
             'blood_group' => $request->blood_group,
-            //-------- Added by ANAM ISLAM 23.04.2023 ----------------
+            //-------- Added by ANAM ISLAM 13.04.2023 ----------------
             'email' => $request->email,
-            //-------- Added by ANAM ISLAM 23.04.2023 ----------------
+            //-------- Added by ANAM ISLAM 13.04.2023 ----------------
         ]);
 
         return redirect()->route('teacher');
@@ -90,7 +92,8 @@ class TeacherController extends Controller
     {
         //
         $teacher = Teacher::find($id);
-        return view('teacher.edit', compact('teacher'));
+        $subjects = Subject::all();
+        return view('teacher.edit', compact('teacher', 'subjects'));
     }
 
     /**
@@ -110,9 +113,9 @@ class TeacherController extends Controller
             'subject' => ['required'],
             'dob' => ['required'],
             'blood_group' => ['required'],
-            //-------- Added by ANAM ISLAM 23.04.2023 ----------------
+            //-------- Added by ANAM ISLAM 13.04.2023 ----------------
             'email' => ['email'],
-            //-------- Added by ANAM ISLAM 23.04.2023 ----------------
+            //-------- Added by ANAM ISLAM 13.04.2023 ----------------
         ]);
 
         $teacher->name = $request->name;
@@ -120,9 +123,9 @@ class TeacherController extends Controller
         $teacher->subject = $request->subject;
         $teacher->dob = $request->dob;
         $teacher->blood_group = $request->blood_group;
-        //-------- Added by ANAM ISLAM 23.04.2023 ----------------
+        //-------- Added by ANAM ISLAM 13.04.2023 ----------------
         $teacher->email = $request->email;
-        //-------- Added by ANAM ISLAM 23.04.2023 ----------------
+        //-------- Added by ANAM ISLAM 13.04.2023 ----------------
         $teacher->save();
 
         return redirect()->route('teacher');
