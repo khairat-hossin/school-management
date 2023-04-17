@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
+use App\Models\BloodGroup;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\Subject;  // ----- Added By ANAM ISLAM: Dropdown Subjects : 16.04.2023 -------
@@ -33,7 +34,8 @@ class TeacherController extends Controller
     {
         //
         $subjects = Subject::all(); // ----- Added By ANAM ISLAM: Dropdown Subjects : 16.04.2023 -------
-        return view('teacher.create', compact('subjects'));
+        $blood_groups = BloodGroup::all(); // ----- Added By ANAM ISLAM: Dropdown Blood Group : 17.04.2023 -------
+        return view('teacher.create', compact('subjects', 'blood_groups'));
     }
 
     /**
@@ -93,7 +95,8 @@ class TeacherController extends Controller
         //
         $teacher = Teacher::find($id);
         $subjects = Subject::all();
-        return view('teacher.edit', compact('teacher', 'subjects'));
+        $blood_groups = BloodGroup::all();
+        return view('teacher.edit', compact('teacher', 'subjects', 'blood_groups'));
     }
 
     /**

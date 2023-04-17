@@ -40,7 +40,7 @@
                         --}}
                         {{------- Added By ANAM ISLAM: Dropdown Subjects : 16.04.2023 ---------}}
                         <select class="form-control" name="subject" id="subject">
-                            <option value="">------</option>
+                            <option value="">Select Subject</option>
                             @foreach($subjects as $subject)
                             <option value="{{$subject->sub_name}}">{{$subject->sub_name}}</option>
                             @endforeach
@@ -52,14 +52,23 @@
                     <div class="mb-3 row">
                         <label for="dob" class="col-sm-2 col-form-label">Teacher's Date Of Birth: </label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="dob" id="dob">
+                            <input type="date" class="form-control" name="dob" id="dob">   
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="blood_group" class="col-sm-2 col-form-label">Blood Group: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="blood_group" id="blood_group">
+                            {{--<input type="text" class="form-control" name="blood_group" id="blood_group">
+                            --}}
+                            {{-- Blood Group Down Added::: Anam Islam :::: 17.04.2023--}}
+                            <select class="form-control" name="blood_group" id="blood_group">
+                                <option value="">Select Blood Group</option>
+                                @foreach ($blood_groups as $blood_group)
+                                    <option value="{{$blood_group->blood_group}}">{{$blood_group->blood_group}}</option>
+                                @endforeach
+                            </select>
+                            {{-- Blood Group Down Added::: Anam Islam :::: 17.04.2023--}}
                         </div>
                     </div>
 
