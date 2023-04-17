@@ -5,6 +5,7 @@ use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
 use App\Http\Controllers\CName\ClassController;
 use App\Http\Controllers\DashBoard\DashBoardController;
+use App\Http\Controllers\BloodGroup\BloodGroupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,3 +61,11 @@ Route::post('/classes/store', [ClassController::class, 'store'])->name('class.st
 Route::get('/classes/edit/{id}', [ClassController::class, 'edit'])->name('class.edit');
 Route::post('/classes/update/{id}', [ClassController::class, 'update'])->name('class.update');
 Route::get('/classes/delete/{id}', [ClassController::class, 'destroy'])->name('class.delete');
+
+// Blood Group Route :: Anam Islam : 16.04.2023
+Route::get('/bloodgroups',[BloodGroupController::class, 'index'])->name('bloodgroup');
+Route::get('/bloodgroups/create', [BloodGroupController::class, 'create'])->name('bloodgroup.create');
+Route::post('/bloodgroups/store',[BloodGroupController::class, 'store'])->name('bloodgroup.store');
+Route::get('/bloodgroups/edit/{id}', [BloodGroupController::class, 'edit'])->name('bloodgroup.edit');
+Route::post('/bloodgroups/update/{id}', [BloodGroupController::class, 'update'])->name('bloodgroup.update');
+Route::get('/bloodgroups/delete/{id}', [BloodGroupController::class, 'destroy'])->name('bloodgroup.delete');
