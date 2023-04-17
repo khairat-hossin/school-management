@@ -44,7 +44,7 @@
                                 --}}
                             {{------ Added By ANAM ISLAM: Dropdown Subjects : 16.04.2023 ------}}
                             <select name="subject" id="subject" class="form-control">
-                                <option value="">{{$teacher->subject}}</option>
+                                <option value="{{$teacher->subject}}">{{$teacher->subject}}</option>
                                 @foreach($subjects as $subject)
                                 <option value="{{$subject->sub_name}}">{{$subject->sub_name}}</option>
                                 @endforeach
@@ -64,8 +64,17 @@
                     <div class="mb-3 row">
                         <label for="blood_group" class="col-sm-2 col-form-label">Blood Group: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="blood_group" id="blood_group"
+                            {{--<input type="text" class="form-control" name="blood_group" id="blood_group"
                                 value="{{ $teacher->blood_group }}">
+                                --}}
+                            {{-- Blood Group Dropdown Added :::: Anam :::: 17.04.2023--}}
+                            <select class="form-control" name="blood_group" id="blood_group">
+                                <option value="{{$teacher->blood_group}}">{{$teacher->blood_group}}</option>
+                                @foreach ($blood_groups as $blood_group)
+                                    <option value="{{$blood_group->blood_group}}">{{$blood_group->blood_group}}</option>
+                                @endforeach
+                            </select>
+                            {{-- Blood Group Dropdown Added :::: Anam :::: 17.04.2023--}}
                         </div>
                     </div>
 
