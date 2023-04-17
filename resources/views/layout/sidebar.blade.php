@@ -17,6 +17,9 @@
                 <li class="nav-item">
                     <a class="nav-link link-dark" href="{{ route('sub.index') }}">Subjects</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link link-dark" href="{{ route('bloodgroup') }}">Blood Groups</a>
+                </li>
             </ul>
         </div>
     </nav>
