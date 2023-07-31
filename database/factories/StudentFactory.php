@@ -1,11 +1,10 @@
 <?php
 
 namespace Database\Factories;
-
 use Faker\Factory as FakerFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PostFactory extends Factory
+class StudentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,11 +13,12 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        $faker= FakerFactory::create();
+        $faker = FakerFactory::create();
         return [
-            'title' => $faker->name(),
-            'description' => $faker->text(200),
-            'category' => $faker->name(),
+            'name' => $faker->name(),
+            'roll' => $faker->randomDigit(),
+            'dob' => $faker->date(),
+            'blood_group' => $faker->bloodGroup(),
         ];
     }
 }

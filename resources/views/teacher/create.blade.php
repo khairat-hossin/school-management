@@ -20,39 +20,66 @@
                 <form action="{{ route('teacher.store') }}" id="teacher_create_form" method="POST">
                     @csrf
                     <div class="mb-3 row">
-                        <label for="tname" class="col-sm-2 col-form-label">Teacher's Name: </label>
+                        <label for="name" class="col-sm-2 col-form-label">Teacher's Name: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="tname" id="tname">
+                            <input type="text" class="form-control" name="name" id="name">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="tregnum" class="col-sm-2 col-form-label">Teacher Registration Number: </label>
+                        <label for="reg_num" class="col-sm-2 col-form-label">Teacher Registration Number: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="tregnum" id="tregnum">
+                            <input type="text" class="form-control" name="reg_num" id="reg_num">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="tsubject" class="col-sm-2 col-form-label">Subject: </label>
+                        <label for="subject" class="col-sm-2 col-form-label">Subject: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="tsubject" id="tsubject">
+                            {{--<input type="text" class="form-control" name="subject" id="subject">
+                        --}}
+                        {{------- Added By ANAM ISLAM: Dropdown Subjects : 16.04.2023 ---------}}
+                        <select class="form-control" name="subject" id="subject">
+                            <option value="">Select Subject</option>
+                            @foreach($subjects as $subject)
+                            <option value="{{$subject->sub_name}}">{{$subject->sub_name}}</option>
+                            @endforeach
+                        </select>
+                        {{------- Added By ANAM ISLAM: Dropdown Subjects : 16.04.2023 ---------}}
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="tdob" class="col-sm-2 col-form-label">Teacher's Date Of Birth: </label>
+                        <label for="dob" class="col-sm-2 col-form-label">Teacher's Date Of Birth: </label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="tdob" id="tdob">
+                            <input type="date" class="form-control" name="dob" id="dob">   
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="tsubject" class="col-sm-2 col-form-label">Blood Group: </label>
+                        <label for="blood_group" class="col-sm-2 col-form-label">Blood Group: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="tblood_group" id="tblood_group">
+                            {{--<input type="text" class="form-control" name="blood_group" id="blood_group">
+                            --}}
+                            {{-- Blood Group Down Added::: Anam Islam :::: 17.04.2023--}}
+                            <select class="form-control" name="blood_group" id="blood_group">
+                                <option value="">Select Blood Group</option>
+                                @foreach ($blood_groups as $blood_group)
+                                    <option value="{{$blood_group->blood_group}}">{{$blood_group->blood_group}}</option>
+                                @endforeach
+                            </select>
+                            {{-- Blood Group Down Added::: Anam Islam :::: 17.04.2023--}}
                         </div>
                     </div>
+
+                    {{-- teacher email.. added by ANAM ISLAM 13.04.2023--}}
+                    <div class="mb-3 row">
+                        <label for="email" class="col-sm-2 col-form-label">Email: </label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" name="email" id="email">
+                        </div>
+                    </div>
+                    {{-- teacher email.. added by ANAM ISLAM 13.04.2023--}}
 
                     <div class="mb-3 row">
                         <div class="col-1">
@@ -70,38 +97,51 @@
     $(function() {
         $("#teacher_create_form").validate({
             rules: {
-                tname: {
+                name: {
                     required: true,
                 },
-                tregnum: {
+                reg_num: {
                     required: true,
                 },
-                tsubject: {
+                subject: {
                     required: true,
                 },
-                tdob: {
+                dob: {
                     required: true,
                     dateISO: true,
                 },
-                tblood_group: {
+                blood_group: {
                     required: true,
                 },
+                //-------- Added by ANAM ISLAM 13.04.2023 -----
+                email: {
+                    required:true,
+                },
+                //----------------------------------------------
             },
 
             messages: {
-                tname: {
+                name: {
                     required: "<b><em>Teacher Name</em></b> is a mandatory field.",
                 },
-                tregnum: {
+                reg_num: {
                     required: "<b><em>Teacher Registration Number</em></b> is a mandatory field.",
                 },
-                tdob: {
+                dob: {
                     required: "<b><em>Teacher Date of Birth</em></b> is a mandatory field.",
                     dateISO: "Please enter a valid date",
                 },
-                tblood_group: {
+                subject: {
+                    required: "<b><em>Subject</em></b> is a mandatory field.",
+                },
+                blood_group: {
                     required: "<b><em>Blood Group</em></b> is a mandatory field.",
                 },
+                //--------------- Addded by ANAM ISLAM 13.04.2023 ---------------------
+                email: {
+                    required: "<b><em>Email</em></b> is a mandatory field.",
+                },
+                //--------------------------------------------------------------------------
             },
         });
     });

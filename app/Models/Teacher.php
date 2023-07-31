@@ -9,10 +9,13 @@ class Teacher extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'tname',
-        'tregnum',
-        'tsubject',
-        'tdob',
-        'tblood_group'
+        'name',
+        'reg_num',
+        'subject',
+        'dob',
+        'blood_group',
+        //------ Added by ANAM ISLAM 23.04.2023
+        'email' 
+        //------ Added by ANAM ISLAM 23.04.2023
     ];
 }

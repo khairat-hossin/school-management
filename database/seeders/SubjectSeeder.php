@@ -28,11 +28,14 @@ class SubjectSeeder extends Seeder
 
         for($i=1; $i<=5; $i++){
             Teacher::create([
-                'tname' => $faker->name,
-                'tregnum' => $faker->randomDigit(),
-                'tsubject' => $faker->word,
-                "tdob" => $faker->date(),
-                "tblood_group" => $faker->bloodGroup()
+                'name' => $faker->name,
+                'reg_num' => $faker->randomDigit(),
+                'subject' => $faker->word,
+                "dob" => $faker->date(),
+                "blood_group" => $faker->bloodGroup(),
+                //------------ Added by ANAM ISLAM 13.04.2023 -------------------
+                "email"=> $faker->email()
+                //------------ Added by ANAM ISLAM 13.04.2023 -------------------
             ]);
     
         }
