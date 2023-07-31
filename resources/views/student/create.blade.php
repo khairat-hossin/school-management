@@ -21,14 +21,14 @@
             <div class="mb-3 row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+                    <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name" placeholder="Name">
                 </div>
             </div>
 
             <div class="mb-3 row">
                 <label for="roll" class="col-sm-2 col-form-label">Roll</label>
                 <div class="col-sm-10">
-                    <input type="text" name="roll" class="form-control" id="roll" placeholder="Roll">
+                    <input type="text" name="roll" value="{{ old('roll') }}" class="form-control" id="roll" placeholder="Roll">
                 </div>
             </div>
             

@@ -27,7 +27,7 @@
                         <td>{{ $student->blood_group }}</td>
                         <td>
                             <a href="{{ route('student.edit', $student->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="{{ route('student.delete', $student->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="{{ route('student.delete', $student->id) }}"  onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-sm btn-danger">Delete</a>
                         </td>
                         
                     </tr>
